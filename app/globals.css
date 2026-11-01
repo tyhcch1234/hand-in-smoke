@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #110e0c;
+  --bg-2: #1b1512;
+  --ink: #f3eadf;
+  --muted: #a89888;
+  --faint: #6e6258;
+  --line: rgba(227, 176, 122, 0.18);
+  --ember: #e39a55;
+  --ember-2: #ffd8ae;
+  --paper: rgba(255, 244, 230, 0.04);
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-geist-sans);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-geist-sans), "Noto Sans TC", "PingFang HK", "WenQuanYi Micro Hei",
+    "Droid Sans Fallback", sans-serif;
+  min-height: 100%;
+}
+
+.serif {
+  font-family: "Noto Serif TC", "Songti TC", "PMingLiU", "WenQuanYi Micro Hei", serif;
+}
+
+.stage {
+  background:
+    radial-gradient(900px 420px at 50% -10%, rgba(227, 154, 85, 0.16), transparent 60%),
+    radial-gradient(700px 380px at 100% 0%, rgba(120, 36, 18, 0.18), transparent 55%),
+    var(--bg);
+}
+
+.syl {
+  scroll-margin-top: 1.25rem;
+  scroll-margin-bottom: 11rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 2.4rem;
+  padding: 0.35rem 0.2rem 0.4rem;
+  border-radius: 0.55rem;
+  color: var(--muted);
+  transition: color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.syl .jp {
+  font-style: normal;
+  font-size: 0.62rem;
+  letter-spacing: 0.01em;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.syl .ch {
+  font-size: 1.35rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.syl.on {
+  background: rgba(227, 154, 85, 0.16);
+  color: var(--ember-2);
+  transform: translateY(-1px);
+}
+
+.syl.on .jp {
+  color: var(--ember);
+}
+
+.syl.line-on {
+  color: var(--ink);
+}
+
+.syl.line-on .jp {
+  color: #b7a898;
+}
+
+button.syl {
+  cursor: pointer;
+}
+
+button.syl:hover {
+  color: var(--ink);
+  background: rgba(255, 244, 230, 0.04);
+}
+
+button.syl:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 2px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(243, 234, 223, 0.14);
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--ember-2);
+  border: 0;
+  box-shadow: 0 0 0 4px rgba(227, 154, 85, 0.18);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--ember-2);
+  border: 0;
+  cursor: pointer;
+}
