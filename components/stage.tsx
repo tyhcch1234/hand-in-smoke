@@ -32,6 +32,7 @@ const MODES: { id: Mode; label: string }[] = [
 ];
 
 const PUNCT = new Set("，。、「」：；——…　 “”\"'()（）!！?？,.、 ");
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 function fmt(sec: number) {
   if (!Number.isFinite(sec) || sec < 0) sec = 0;
@@ -72,7 +73,7 @@ export function Stage() {
 
   useEffect(() => {
     let gone = false;
-    fetch("/song.json")
+    fetch(`${BASE}/song.json`)
       .then((r) => {
         if (!r.ok) throw new Error(String(r.status));
         return r.json();
@@ -90,10 +91,10 @@ export function Stage() {
 
   const src = song
     ? mode === "vocal"
-      ? `/${song.vocal}`
+      ? `${BASE}/${song.vocal}`
       : mode === "bed"
-        ? `/${song.bed}`
-        : `/${song.audio}`
+        ? `${BASE}/${song.bed}`
+        : `${BASE}/${song.audio}`
     : "";
 
   const flat = useMemo(() => {
